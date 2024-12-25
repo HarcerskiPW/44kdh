@@ -1,0 +1,58 @@
+<<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Łamigłówka Liczbowa</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .result {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Łamigłówka Liczbowa</h1>
+        <p>Jaka jest suma liczb 22 i 22?</p>
+        <input type="number" id="answer" placeholder="Wpisz odpowiedź">
+        <button onclick="checkAnswer()">Sprawdź</button>
+        <p id="result" class="result"></p>
+        <audio id="successSound" src="Kalina_Druzyna.mp3"></audio>
+    </div>
+
+    <script>
+        function checkAnswer() {
+            const userAnswer = parseInt(document.getElementById('answer').value);
+            const correctAnswer = 44;
+
+            const resultElement = document.getElementById('result');
+            const successSound = document.getElementById('successSound');
+
+            if (userAnswer === correctAnswer) {
+                resultElement.textContent = 'Poprawna odpowiedź!';
+                resultElement.style.color = 'green';
+                successSound.play();
+            } else {
+                resultElement.textContent = 'Niepoprawna odpowiedź, spróbuj ponownie.';
+                resultElement.style.color = 'red';
+            }
+        }
+    </script>
+</body>
+</html>
